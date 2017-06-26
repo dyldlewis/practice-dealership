@@ -23,9 +23,9 @@
         function setPrice($new_price)
         {
             $float_price = (float) $new_price;
+            var_dump($float_price);
             if ($float_price != 0) {
-                 $formatted_price = number_format($float_price, 2);
-                 $this->price = $formatted_price;
+                 $this->price = $float_price;
             }
         }
         function getPrice()
@@ -45,7 +45,7 @@
 
         function worthBuying($max_price)
         {
-            return $this->price < ($max_price);
+            return $this->price < ($max_price + 100);
         }
     }
 
@@ -53,7 +53,7 @@
     $ford = new Car("2011 Ford F450", 55995.00, 14241, "img/ford.jpg");
     $lexus = new Car("2013 Lexus RX 350", 44700.00, 20000, "img/lexus.jpg");
     $mercedes = new Car("Mercedes Benz CLS550", 39900.00, 37979, "img/mercedes.jpg");
-    // $porsche->setPrice("101111.3366");
+    $porsche->setPrice("100000.00");
     $cars = array($porsche, $ford, $lexus, $mercedes);
 
     $cars_matching_search = array();
